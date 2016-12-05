@@ -1,0 +1,16 @@
+For the algorithm project, I implement a bubble sort and a binary search for arrays of integers. 
+The bubble sort works by traversing the provided unsorted array beginning with the first element 
+in the array and comparing it to the next element. If  the first element is greater than the element 
+at the next index, the elements swap positions in the array and the greater element is compared the 
+rest of the elements in the array until a greater element or the end of the array is reached. The bubble
+sort will loop continuously until all elements in the array are sorted. 
+
+The binary search takes an ordered array and searches for a provided key (in this case an int),  by first
+comparing the key to the element in the middle of the array. If the element in the middle of the array is 
+equal to the key, the index of the middle element is returned. If the element in the middle of the array 
+is greater than the key, then the first half of the array is searched by continuously splitting the 
+remaining half of the array into more halves and repeating the same pattern until the key matches an element
+in the array (at which point the index of the matching element is returned), or the algorithm has reached a
+point where the list cannot be split any further and this means that the array does not contain the key and
+the algorithm returns -1. If the element in the middle of the array is less than the key, then this same 
+process is done on the second half of the array.  
