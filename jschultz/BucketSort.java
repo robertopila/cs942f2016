@@ -52,7 +52,7 @@ public class BucketSort {
 
 	public static void main(String[] arguments) throws InterruptedException, ExecutionException {
 		Random randomGenerator = new Random();
-		double[] randomDoubles = new double[Math.max(1, randomGenerator.nextInt(25))]; //Math.max to guarantee we have an array
+		double[] randomDoubles = new double[Math.max(1, randomGenerator.nextInt(25))]; //Math.max to guarantee we have an array of more than one element
 		for (int i = 0; i < randomDoubles.length; i++)
 		{
 			randomDoubles[i] = randomGenerator.nextDouble(); //this will only generate numbers between 0 and 1, but it still shows the efficiency of the sort
