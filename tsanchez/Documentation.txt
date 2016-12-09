@@ -1,0 +1,8 @@
+The program that I created alphabetically sorts a list of strings that are in a text file. I used the exchange sort algorithm and compareToIgnoreCase() method to accomplish this. 
+To begin the program, the user inputs the name of the text file to sort and if the file doesn’t exist, the program exits. 
+Second, the program asks the user to input the name of the text file to output the sorted strings to and if the file doesn’t exist, the program exits. 
+Third, the program asks the user for an integer to create an array. The program then populates the array with the strings from the text file, line by line. 
+Using this string array, the program implements the exchange sort algorithm to sort the strings alphabetically. 
+Using a loop with a nested loop, the exchange sort algorithm is implemented in the first cell of the array and subsequent cell in ascending order. 
+Using the compareToIgnoreCase() method the strings in the cells are evaluated. If the method returns a positive integer the strings are swapped.
+After the loop has iterated through all the array cells, the program writes the sorted strings into the output file. 
