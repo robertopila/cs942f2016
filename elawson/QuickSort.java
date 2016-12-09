@@ -23,10 +23,6 @@ import java.util.Random;
  * 8.  if the sub-array is greater than 1 element repeat steps 1-7 for each sub array.
  * 
  * These  steps are handled by the sort function.
- * 
- * Usage: 
- * This class contains one main class that provides a randomized demonstration of the class. 
- * It has one public static method QuickSort(int[]) which takes an array of integers and sorts them in ascending order. Null and empty arrays are returned as-is since they cannot be sorted.
  */
 public class QuickSort {
 
@@ -53,8 +49,6 @@ public class QuickSort {
     public static int[] quickSort(int[] array) {
         if (array != null && array.length > 0)
             sort(array, 0, array.length-1);
-        else
-            System.out.println("Array cannot be sorted, empty or null.");
         return array;
     }
 

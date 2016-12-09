@@ -22,11 +22,7 @@ The sort algorithm works as follows:
 5. Since the last index of the array is now sorted the heap size is now one smaller.
 6. Since index 0 now contains a new number the heap must be repaired by applying the sift function to index 0 and sifting up the tree. 
 7. Repeat steps 3-7 until the heap size reaches 1. Each repetition sorts the highest remaining value in the heap into the last index occupied by the heap, thus filling the array backwards from the last index down to 0 as the heap size decreases.
- 
-Usage: 
-This class contains one main class that provides a randomized demonstration of the class. 
-It has one public static method HeapSort(int[]) which takes an array of integers and sorts them in ascending order. Null and empty arrays are returned as-is since they cannot be sorted.
-*/
+ */
 package heapsort;
 
 import java.util.Random;
@@ -49,7 +45,7 @@ public class HeapSort {
             
             //populate array with random values
             for (int j = 0; j < input.length-1; j++)
-                input[j] = numbers.nextInt();
+                input[j] = numbers.nextInt(10);
             System.out.println("Start:");
             printArray(input);
             heapSort(input);
@@ -63,7 +59,6 @@ public class HeapSort {
             for (int end = arr.length - 1; end > 0; end--) { //each loop extracts the largest value in the heap by swapping it to the end then decreasing the heap size by one.
                 int temp = arr[end];
                 arr[end] = arr[0];
-                arr[0] = temp;
                 sift(arr, 0, end-1); //fix the heap since index 0 no longer satisfies the heap rule.
             }
             return arr;
