@@ -1,50 +1,169 @@
-package discreteMathAlgorithms;
+//programmer Andrew Frazier
+import java.util.Scanner;
 
-public class BinarySearch {
+public class bTree
+{
+	personRec root;
+	public bTree() //node structure for student and bribe
+	{
+	     personRec root = null;
+	}
+	public class personRec
+	{
+		private personRec lChild, rChild;
+		private String name; private int bribe;
+		public personRec()
+		{
+			lChild = null;
+			rChild = null;
+			name = null;
+			bribe = 0;	
+		}
+	public void setName(String n)
+	{name = n;}
+	public void setBribe(int b)
+	{bribe = b;}
+	public String getName()
+	{return name;}
+	public int getBribe()
+	{return bribe;}
+	public personRec getlChild()
+	{return lChild;}
+	public personRec getrChild()
+	{return rChild;}
+	public void setlChild(personRec l)
+	{ lChild = l;}
+	public void setrChild(personRec r)
+	{ rChild = r;}
+	}
 
-	public static void main(String[] args) {
-		
-		//Create an array of unsorted integers 
-		int[] arr = {5, 7, 3, 4, 1, 9, 10, 0, 55, 33, 1072};
-		
-		
-		//search for the index of the int "7"
-		int index = binarySearch(arr, 7);
-		
-		System.out.println(index);
+	public void Add() //decide whether to make a new root or add to the tree.
+	//calls helper function to actually add. no duplicates accepted
+	{
+		int tbribe; String tname;
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Name: ");
+		tname = sc.nextLine();
+		System.out.print("Bribe: ");
+		tbribe = sc.nextInt();
+		if (root == null)
+			buildRoot(tname, tbribe);
+		else
+			append(tname, tbribe);
+
+	}
+	public void View() //list tree in descending order by bribe amount.
+	//calls helper recursive function to display
+	{
+		if(root == null)
+		{
+		  System.out.println("There are no items to view!");
+			return;
+		}
+		personRec temp = root;
+		System.out.println("Name\t\tBribe Amount\n");
+		DisplayTree(temp);
 	}
 	
-	public static int binarySearch(int[] arr, int x) {
-		
-		//sort the array
-		BubbleSort.bubbleSort(arr);
-		
-		int low = 0;
-		int high = arr.length -1;
-		
-		int middle;
-		
-		
-		//search for the index of int x in the array
-		while (low <= high) {
-		
-			//this will be an index that splits the array into two
-			middle = (low+high) / 2;
-			
-			/*if the element at "middle" index is greater than "x", now 
-			 * search the first half that the array was split into, and 
-			this half will also now be split into two*/
-			if (Integer.compare(arr[middle], x) > 0) high = middle - 1;
-			
-			/*if element at "middle" index is less than x, search the 
-			 * second half that the array was split into, and this half 
-			 * will also now be split into two*/
-			else if (Integer.compare(arr[middle], x) < 0) low = middle +1;
-			
-			/*this will return "middle" if element at "middle" index
-			is equal to x*/
-			else return middle;	
+	public void DisplayTree(personRec p)
+	{
+		if(p != null)
+		{
+    		DisplayTree(p.getrChild());
+    		System.out.println(p.getName() + "\t\t" + p.getBribe());
+    		DisplayTree(p.getlChild());
 		}
-		return -1;
 	}
-  `
+
+	public void buildRoot(String n, int b)
+	{
+		root = new personRec();
+		root.setName(n);
+		root.setBribe(b);
+	}
+
+	public void append(String n, int b)
+	{
+		personRec temp = root;
+		if (temp.getrChild() == null && temp.getlChild() == null) //handles root having no children
+		{
+			if (temp.getBribe() < b)
+			{
+				temp.setrChild(new personRec());
+				temp = temp.getrChild();
+				temp.setBribe(b);
+				temp.setName(n);
+				return;
+			}
+			else if (temp.getBribe() > b)
+			{
+				temp.setlChild(new personRec());
+				temp = temp.getlChild();
+				temp.setBribe(b);
+				temp.setName(n);
+				return;
+			}
+			else
+			{
+				System.out.println("That Bribe Amount Exists. Hint: Go Higher");
+				return;
+			}
+
+		}
+		while (temp.getrChild() != null || temp.getlChild() != null) //traverses tree to find place to add
+		{
+			if (b > temp.getBribe())
+			{
+				if (temp.getrChild() != null)
+					temp = temp.getrChild();
+				else
+				{
+					temp.setrChild(new personRec());
+					temp = temp.getrChild();
+					temp.setName(n);
+					temp.setBribe(b);
+					return;
+				}
+			}
+			else if (b < temp.getBribe())
+			{
+				if (temp.getlChild() != null)
+					temp = temp.getlChild();
+				else
+				{
+					temp.setlChild(new personRec());
+					temp = temp.getlChild();
+					temp.setName(n);
+					temp.setBribe(b);
+					return;
+				}
+			}
+			else
+			{
+				System.out.println("That Bribe Amount Exists. Hint: Go Higher");
+				return;
+			}
+		}
+			if (temp.getBribe() < b)
+			{
+				temp.setrChild(new personRec());
+				temp = temp.getrChild();
+				temp.setBribe(b);
+				temp.setName(n);
+				return;
+			}
+		else if (temp.getBribe() > b)
+			{
+				temp.setlChild(new personRec());
+				temp = temp.getlChild();
+				temp.setBribe(b);
+				temp.setName(n);
+				return;
+			}
+		else
+			{
+				System.out.println("That Bribe Amount Exists. Hint: Go Higher");
+				return;
+			}
+	}
+}
