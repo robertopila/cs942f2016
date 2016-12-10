@@ -63,6 +63,7 @@ public class BucketSort {
 		for (int i = 0; i < randomDoubles.length; i++) {
 			System.out.print(randomDoubles[i] + " ");
 		}
+		return;
 	}
 
 }
