@@ -1,0 +1,6 @@
+Documentation:
+
+
+This sorting algorithm is the one that needs the least amount of swaps and comparisons to sort an array of unordered numbers. This is true regardless of size. This sorting algorithm works by comparing two elements in an array in a different way than other algorithms. It compares an element on the right of the array with an element a few indexes ahead of it. The next pair of elements being compared are one index ahead. This process is repeated until the right element being compared is the one at the end of the array. The gap then becomes 3 times smaller than what it was, and it if the dividend isn’t a whole number, then the gap is the smallest integer. When the gap becomes “1,” the shell sort behaves the same way that the insertion sort works.
+
+The Exchange sort works somewhat like the bubble sort except that the exchange sort makes sure to check the order one at a time in a way that the smallest element goes to the left and then is not checked again. The second smallest element goes to the second position in the array, and so on.
