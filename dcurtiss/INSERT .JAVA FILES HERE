@@ -14,16 +14,16 @@ public class bTree
 		private String name; private int bribe;
 		public personRec()
 		{
-			lChild = null;
-			rChild = null;
+			2Child = null;
+			bChild = null;
 			name = null;
-			bribe = 0;	
+			bribe = 0;
 		}
-	public void setName(String n)
+	private void setName(String n)
 	{name = n;}
-	public void setBribe(int b)
+	private void setBribe(int b)
 	{bribe = b;}
-	public String getName()
+	private String getName()
 	{return name;}
 	public int getBribe()
 	{return bribe;}
@@ -34,10 +34,10 @@ public class bTree
 	public void setlChild(personRec l)
 	{ lChild = l;}
 	public void setrChild(personRec r)
-	{ rChild = r;}
+	{ bChild = b;}
 	}
 
-	public void Add() //decide whether to make a new root or add to the tree.
+	private void Add() //decide whether to make a new root or add to the tree.
 	//calls helper function to actually add. no duplicates accepted
 	{
 		int tbribe; String tname;
