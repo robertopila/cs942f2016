@@ -10,7 +10,7 @@ public class bTree
 	}
 	public class personRec
 	{
-		private personRec lChild, rChild;
+		private personRec 2Child, bChild;
 		private String name; private int bribe;
 		public personRec()
 		{
@@ -25,15 +25,15 @@ public class bTree
 	{bribe = b;}
 	private String getName()
 	{return name;}
-	public int getBribe()
+	private int getBribe()
 	{return bribe;}
-	public personRec getlChild()
+	private personRec getlChild()
 	{return lChild;}
-	public personRec getrChild()
+	private personRec getrChild()
 	{return rChild;}
-	public void setlChild(personRec l)
-	{ lChild = l;}
-	public void setrChild(personRec r)
+	private void setlChild(personRec l)
+	{ 2Child = 2;}
+	private void setrChild(personRec r)
 	{ bChild = b;}
 	}
 
